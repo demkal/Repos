@@ -77,14 +77,14 @@ namespace InstaGramLikeTake2
                 var add = new Controls.AdMobView() {WidthRequest=320, HeightRequest=50 };
                 layout.Children.Add(meta);
             });
-            //getUserSelf.Start();
-            //getUserSelf.Wait();
+            getUserSelf.Start();
+            getUserSelf.Wait();
 
-            Task something = new Task(() =>
+            Task getMediaRecent = new Task(() =>
             {
                 try
                 {
-                    jsonResponse = InstagramAPI.GetTagMedia("beer").Result;
+                    jsonResponse = InstagramAPI.GetTagMediaRecent("beer").Result;
                     media = InstagramMediaList.CreateFromJsonResponse(jsonResponse);
                     Debug.WriteLine("Filtered Media : {0}", media.Data.Count);
                     foreach(var item in media.Data)
@@ -98,8 +98,32 @@ namespace InstaGramLikeTake2
                 }
 
             });
-            something.Start();
-            something.Wait();
+            getMediaRecent.Start();
+            getMediaRecent.Wait();
+
+
+
+            Task getSelfFollowedBy = new Task(() =>
+            {
+                try
+                {
+                    jsonResponse = InstagramAPI.GetRelationshipUserSelfFollowedBy().Result;
+                    var users = InstagramRelationshipList.CreateFromJsonResponse(jsonResponse);
+                    Debug.WriteLine("Filtered Media : {0}", media.Data.Count);
+                    foreach (var item in users.Data)
+                    { 
+                    
+                        Debug.WriteLine("UserName {0}", item.Full_name);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("Failure getting recent tags {0}", ex.Message);
+                }
+
+            });
+            getSelfFollowedBy.Start();
+            getSelfFollowedBy.Wait();
 
             /*
             // Shows an example how you get information of the an other user
@@ -171,7 +195,7 @@ namespace InstaGramLikeTake2
             });
             removeLike.Start();
             removeLike.Wait();
-        */    
+        */
         }
 
         protected override void OnAppearing()

@@ -58,7 +58,7 @@ namespace InstaGramLikeTake2
             return makeRequest("GET", "https://api.instagram.com/v1/users/self/media/recent/");
         }
 
-        internal static Task<string> GetTagMedia(string tag)
+        internal static Task<string> GetTagMediaRecent(string tag)
         {
             return makeRequest("GET", string.Format("https://api.instagram.com/v1/tags/{0}/media/recent", tag));
         }
@@ -72,6 +72,21 @@ namespace InstaGramLikeTake2
         public static Task<string> GetUserOther(string userId)
         {
             return makeRequest("GET", String.Format("https://api.instagram.com/v1/users/{0}/", userId));
+        }
+
+        public static Task<string> GetRelationshipUserSelfFollows()
+        {
+            return makeRequest("GET", string.Format("https://api.instagram.com/v1/users/self/follows/"));
+        }
+
+        public static Task<string> GetRelationshipUserSelfFollowedBy()
+        {
+            return makeRequest("GET", string.Format("https://api.instagram.com/v1/users/self/followed-by/"));
+        }
+
+        public static Task<string> GetRelationshipUserRelationship(string userId)
+        {
+            return makeRequest("GET", string.Format("https://api.instagram.com/v1/users/{0}/relationship/", userId));
         }
 
         /// <summary>

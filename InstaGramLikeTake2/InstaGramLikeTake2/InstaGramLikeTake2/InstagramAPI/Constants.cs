@@ -11,7 +11,7 @@
 
         // Specify what you want to access from the Instagram API. I didn't use all of them in this example.
         // For more scope parameters look at the Instagram API documentation. (https://www.instagram.com/developer/authorization/)
-        public static string Scopes = "basic public_content likes";
+        public static string Scopes = "basic public_content likes follower_list";
 
         // The authorization URL of Instagram. Note that I use client-side authentication in this example.
         // Change the response_type to "code" to use server-side authentication. (https://www.instagram.com/developer/authentication/)

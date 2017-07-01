@@ -45,6 +45,7 @@
     <Compile Include="InstagramAPI\InstagramLike.cs" />
     <Compile Include="InstagramAPI\InstagramMediaList.cs" />
     <Compile Include="InstagramAPI\InstagramUser.cs" />
+    <Compile Include="InstagramAPI\InstagramRelationship.cs" />
     <Compile Include="LayoutData.cs" />
     <Compile Include="LoginSuccessPage.xaml.cs">
       <DependentUpon>LoginSuccessPage.xaml</DependentUpon>
