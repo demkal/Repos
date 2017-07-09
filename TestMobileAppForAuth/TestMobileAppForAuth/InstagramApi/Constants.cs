@@ -20,5 +20,7 @@
 
         // Your redirect URI. The URI must match with the registered redirect URI of your Instagram client. (https://www.instagram.com/developer/clients/manage/)
         public static string RedirectUri = "http://mobileapp120170703104520.azurewebsites.net/api/values/get?ZUMO-API-VERSION=2.0.0";
+
+        public static string InstagramAccessToken = "instagram.accesstoken";
     }
 }
