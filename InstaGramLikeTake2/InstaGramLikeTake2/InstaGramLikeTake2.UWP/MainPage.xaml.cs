@@ -30,7 +30,7 @@ namespace InstaGramLikeTake2.UWP
     {
         public void Login(Authenticator authenticator)
         {
-            //Xamarin.Forms.Forms.Context.StartActivity(authenticator.GetUI(Xamarin.Forms.Forms.Context));
+            Xamarin.Forms.Forms.Context.StartActivity(authenticator.GetUI(Xamarin.Forms.Forms.Context));
         }
     }
 }

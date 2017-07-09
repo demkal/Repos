@@ -11,7 +11,7 @@
 
         // Specify what you want to access from the Instagram API. I didn't use all of them in this example.
         // For more scope parameters look at the Instagram API documentation. (https://www.instagram.com/developer/authorization/)
-        public static string Scopes = "basic public_content likes follower_list";
+        public static string Scopes = "basic public_content likes";
 
         // The authorization URL of Instagram. Note that I use client-side authentication in this example.
         // Change the response_type to "code" to use server-side authentication. (https://www.instagram.com/developer/authentication/)
@@ -20,5 +20,7 @@
 
         // Your redirect URI. The URI must match with the registered redirect URI of your Instagram client. (https://www.instagram.com/developer/clients/manage/)
         public static string RedirectUri = "http://mobileapp120170703104520.azurewebsites.net/api/values/get?ZUMO-API-VERSION=2.0.0";
+
+        public static string InstagramAccessToken = "instagram.accesstoken";
     }
 }
